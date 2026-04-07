@@ -2,12 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Renovate preset for Node.js projects",
   "extends": [
-
+    "github>singularit-de/renovate-config:node/pnpm#0.0.5"
   ],
   "packageRules": [
     {
       "matchManagers": ["npm"],
       "rangeStrategy": "bump"
     }
-  ]
+  ],
+  "pnpm": {
+    "description": "pnpm-specific Renovate preset",
+    "postUpdateOptions": ["pnpmDedupe"]
+  }
 }
