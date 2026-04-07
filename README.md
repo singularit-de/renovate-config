@@ -9,7 +9,9 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>singularit-de/renovate-config"]
+  "extends": [
+    "github>singularit-de/renovate-config#0.0.1"
+  ]
 }
 ```
 
@@ -18,7 +20,9 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>singularit-de/renovate-config:gitlab"]
+  "extends": [
+    "github>singularit-de/renovate-config:gitlab#0.0.1"
+  ]
 }
 ```
 
@@ -27,25 +31,22 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>singularit-de/renovate-config:docker"]
-}
-```
-
-### Pin to a version
-
-```json
-{
-  "extends": ["github>singularit-de/renovate-config#1.0.0"]
+  "extends": [
+    "github>singularit-de/renovate-config:docker#0.0.1"
+  ]
 }
 ```
 
 ## Presets
 
-| Preset | Description |
-|--------|-------------|
-| `default` | Base config extending `config:best-practices` with automerge, scheduling, and labels |
-| `gitlab` | Self-hosted GitLab config with auto-approve and merge strategy |
-| `docker` | Docker-specific grouping, pinning, and automerge rules |
+| Preset    | Description                                                                                                          |
+|-----------|----------------------------------------------------------------------------------------------------------------------|
+| `default` | Combines base, docker, python, and gitlab presets                                                                    |
+| `base`    | Extends `config:best-practices`, `:rebaseStalePrs`, and `mergeConfidence:all-badges` with assignees from code owners |
+| `docker`  | Enables `docker:pinDigests` and `docker:enableMajor`                                                                 |
+| `python`  | Configures `pip_requirements` file matching                                                                          |
+| `gitlab`  | Enables OSV vulnerability alerts for self-hosted GitLab                                                              |
+| `node`    | Sets `rangeStrategy` to `bump` for Node.js projects                                                                 |
 
 ## Releasing
 
@@ -53,4 +54,8 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 npm run release
 ```
 
-Uses [bumpp](https://github.com/antfu-collective/bumpp) to interactively bump the version, create a git tag, and push to origin. A GitHub Actions workflow then creates a GitHub Release.
+Uses [bumpp](https://github.com/antfu-collective/bumpp) to interactively bump the version, create a git tag, and push to
+origin. A GitHub Actions workflow then creates a GitHub Release.
+
+Version pins in transitive config references (e.g. `github>singularit-de/renovate-config:base#0.0.1` in `default.json`)
+are automatically updated to the new version during the bump.

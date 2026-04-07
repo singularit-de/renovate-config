@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Node.js projects",
+  "extends": [
+
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "rangeStrategy": "bump"
+    }
+  ]
+}

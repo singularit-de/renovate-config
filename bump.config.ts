@@ -1,8 +1,24 @@
 import { defineConfig } from 'bumpp'
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 
 export default defineConfig({
   commit: 'release: v%s',
   tag: 'v%s',
   push: true,
   all: true,
+  execute(config) {
+    const newVersion = config.state.newVersion
+    const pattern = /(singularit-de\/renovate-config[^#]*#)[^\s"]+/g
+    const files = [
+      ...readdirSync('.').filter(f => f.endsWith('.json') && f !== 'package.json'),
+      'README.md',
+    ]
+    for (const file of files) {
+      const content = readFileSync(file, 'utf-8')
+      const updated = content.replace(pattern, `$1${newVersion}`)
+      if (updated !== content) {
+        writeFileSync(file, updated)
+      }
+    }
+  },
 })
