@@ -2,10 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default Renovate preset for singularIT",
   "extends": [
-    "github>singularit-de/renovate-config:base#0.0.1",
-    "github>singularit-de/renovate-config:docker#0.0.1",
-    "github>singularit-de/renovate-config:python#0.0.1",
-    "github>singularit-de/renovate-config:gitlab#0.0.1",
-    "github>singularit-de/renovate-config:node#0.0.1"
+    "github>singularit-de/renovate-config:base#0.0.2",
+    "github>singularit-de/renovate-config:docker#0.0.2",
+    "github>singularit-de/renovate-config:python#0.0.2",
+    "github>singularit-de/renovate-config:gitlab#0.0.2",
+    "github>singularit-de/renovate-config:node#0.0.2"
   ]
 }
