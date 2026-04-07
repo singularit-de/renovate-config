@@ -28,6 +28,8 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 
 ### Docker preset
 
+Includes all Docker sub-presets (base + versions).
+
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
@@ -37,13 +39,30 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 }
 ```
 
+Sub-presets can also be used individually:
+
+- `:docker/base` — digest pinning and major updates
+- `:docker/envVersions` — detects `_VERSION` variables in Dockerfiles via `# renovate:` comments
+
+Example Dockerfile usage for `docker/envVersions`:
+
+```dockerfile
+# renovate: datasource=docker depName=node versioning=docker
+ENV NODE_VERSION=18.17.0
+
+# renovate: datasource=docker depName=php versioning=docker
+ARG PHP_VERSION=8.2
+```
+
 ## Presets
 
 | Preset    | Description                                                                                                          |
 |-----------|----------------------------------------------------------------------------------------------------------------------|
 | `default` | Combines base, docker, python, and gitlab presets                                                                    |
 | `base`    | Extends `config:best-practices`, `:rebaseStalePrs`, and `mergeConfidence:all-badges` with assignees from code owners |
-| `docker`  | Enables `docker:pinDigests` and `docker:enableMajor`                                                                 |
+| `docker`  | Combines `docker/base` and `docker/envVersions`                                                                         |
+| `docker/base` | Enables `docker:pinDigests` and `docker:enableMajor`                                                             |
+| `docker/envVersions` | Detects and updates `_VERSION` variables (ENV/ARG) in Dockerfiles via `# renovate:` comments              |
 | `python`  | Configures `pip_requirements` file matching                                                                          |
 | `gitlab`  | Enables OSV vulnerability alerts for self-hosted GitLab                                                              |
 | `node`    | Sets `rangeStrategy` to `bump` for Node.js projects                                                                 |

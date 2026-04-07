@@ -2,7 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Docker-specific Renovate preset for singularIT",
   "extends": [
-    "docker:pinDigests",
-    "docker:enableMajor"
-  ]
+    "github>singularit-de/renovate-config:docker/base#0.0.3",
+    "github>singularit-de/renovate-config:docker/envVersions#0.0.3"
+  ],
+  "base": {
+    "description": "Base Docker preset with digest pinning and major updates",
+    "extends": [
+      "docker:pinDigests",
+      "docker:enableMajor"
+    ]
+  },
+  "envVersions": {
+    "description": "Detect and update _VERSION variables (ENV/ARG) in Dockerfiles via renovate comments",
+    "extends": [
+      "customManagers:dockerfileVersions"
+    ]
+  }
 }
