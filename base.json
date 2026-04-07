@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Base Renovate preset for singularIT",
   "extends": [
+    ":semanticCommits",
     "config:best-practices",
     ":rebaseStalePrs",
     "mergeConfidence:all-badges"
