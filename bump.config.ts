@@ -2,8 +2,8 @@ import { defineConfig } from 'bumpp'
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 
 export default defineConfig({
-  commit: 'release: v%s',
-  tag: 'v%s',
+  commit: 'release: %s',
+  tag: '%s',
   push: true,
   all: true,
   execute(config) {
