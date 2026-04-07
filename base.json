@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Base Renovate preset for singularIT",
+  "extends": [
+    "config:best-practices",
+    ":rebaseStalePrs",
+    "mergeConfidence:all-badges"
+  ],
+  "pip_requirements": {
+    "fileMatch": ["(^|/)requirements(/.*)?(-.*)?.txt$"]
+  },
+  "assigneesFromCodeOwners": true
+}
