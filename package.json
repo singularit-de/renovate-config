@@ -1,6 +1,6 @@
 {
   "name": "renovate-config",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "Renovate shareable config presets for singularIT",
   "repository": {

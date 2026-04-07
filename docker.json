@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Docker-specific Renovate preset for singularIT",
   "extends": [
-    "github>singularit-de/renovate-config:docker/base#0.0.3",
-    "github>singularit-de/renovate-config:docker/envVersions#0.0.3"
+    "github>singularit-de/renovate-config:docker/base#0.0.4",
+    "github>singularit-de/renovate-config:docker/envVersions#0.0.4"
   ],
   "base": {
     "description": "Base Docker preset with digest pinning and major updates",
