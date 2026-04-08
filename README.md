@@ -54,6 +54,21 @@ ENV NODE_VERSION=18.17.0
 ARG PHP_VERSION=8.2
 ```
 
+> [!WARNING]
+> Do not use `# renovate:` comments for variables that are used in a `FROM` directive. Renovate has native support for detecting and updating Docker image references in `FROM` lines. Adding a `# renovate:` comment in this case will override the native handling and **disable digest pinning** for that image.
+>
+> ```dockerfile
+> # Bad – unnecessary, Renovate already handles this natively
+> # renovate: datasource=docker depName=node versioning=docker
+> ARG NODE_VERSION=18.17.0
+> FROM node:${NODE_VERSION}
+>
+> # Good – Renovate updates the FROM reference automatically
+> ARG NODE_VERSION=18.17.0
+> FROM node:${NODE_VERSION}
+> ```
+
+
 ## Presets
 
 | Preset    | Description                                                                                                          |
