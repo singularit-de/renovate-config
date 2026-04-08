@@ -10,7 +10,7 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>singularit-de/renovate-config#0.0.7"
+    "github>singularit-de/renovate-config#0.0.8"
   ]
 }
 ```
@@ -21,7 +21,7 @@ Shareable [Renovate](https://docs.renovatebot.com/) config presets for singularI
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>singularit-de/renovate-config:gitlab#0.0.7"
+    "github>singularit-de/renovate-config:gitlab#0.0.8"
   ]
 }
 ```
@@ -34,7 +34,7 @@ Includes all Docker sub-presets (base + versions).
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>singularit-de/renovate-config:docker#0.0.7"
+    "github>singularit-de/renovate-config:docker#0.0.8"
   ]
 }
 ```
@@ -109,5 +109,5 @@ npm run release
 Uses [bumpp](https://github.com/antfu-collective/bumpp) to interactively bump the version, create a git tag, and push to
 origin. A GitHub Actions workflow then creates a GitHub Release.
 
-Version pins in transitive config references (e.g. `github>singularit-de/renovate-config:base#0.0.7 in `default.json`)
+Version pins in transitive config references (e.g. `github>singularit-de/renovate-config:base#0.0.8 in `default.json`)
 are automatically updated to the new version during the bump.
