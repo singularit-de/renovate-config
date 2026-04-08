@@ -68,6 +68,24 @@ ARG PHP_VERSION=8.2
 > FROM node:${NODE_VERSION}
 > ```
 
+### GitLab preset
+
+Enables OSV vulnerability alerts and detects `_VERSION` variables in GitLab CI pipelines via `# renovate:` comments. This is needed because Renovate's native `gitlabci` manager does not resolve variables used in `image:` directives.
+
+Example `.gitlab-ci.yml` usage:
+
+```yaml
+variables:
+  # renovate: datasource=docker depName=node versioning=docker
+  NODE_VERSION: "18.17.0"
+  # renovate: datasource=docker depName=python versioning=docker
+  PYTHON_VERSION: "3.12.0"
+
+build:
+  image: node:$NODE_VERSION
+  script:
+    - npm ci && npm run build
+```
 
 ## Presets
 
@@ -79,7 +97,7 @@ ARG PHP_VERSION=8.2
 | `docker/base` | Enables `docker:pinDigests` and `docker:enableMajor`                                                             |
 | `docker/envVersions` | Detects and updates `_VERSION` variables (ENV/ARG) in Dockerfiles via `# renovate:` comments              |
 | `python`  | Configures `pip_requirements` file matching                                                                          |
-| `gitlab`  | Enables OSV vulnerability alerts for self-hosted GitLab                                                              |
+| `gitlab`  | Enables OSV vulnerability alerts and detects `_VERSION` variables in GitLab CI pipelines via `# renovate:` comments  |
 | `node`    | Sets `rangeStrategy` to `bump` for Node.js projects                                                                 |
 
 ## Releasing
