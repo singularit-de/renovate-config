@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Renovate preset for Node.js projects",
   "extends": [
-    "github>singularit-de/renovate-config:node/pnpm#0.0.8"
+    "github>singularit-de/renovate-config:node/pnpm#0.0.9"
   ],
   "packageRules": [
     {
