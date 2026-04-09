@@ -6,6 +6,7 @@
     "github>singularit-de/renovate-config:docker#0.0.8",
     "github>singularit-de/renovate-config:python#0.0.8",
     "github>singularit-de/renovate-config:gitlab#0.0.8",
-    "github>singularit-de/renovate-config:node#0.0.8"
+    "github>singularit-de/renovate-config:node#0.0.8",
+    "github>OrbisK/renovate-config-e18e#0.0.19"
   ]
 }
