@@ -4,6 +4,6 @@
     "local>singularit-de/renovate-config"
   ],
   "renovate-config-presets": {
-    "fileMatch": ["^(default|base|docker|node|python|gitlab)\\.json$"]
+    "managerFilePatterns": ["**/*.json", "!**/package.json"]
   }
 }
