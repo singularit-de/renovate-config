@@ -2,5 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>singularit-de/renovate-config"
-  ]
+  ],
+  "renovate-config-presets": {
+    "fileMatch": ["^(?!package\\.json$)[^/]+\\.json$"]
+  }
 }
