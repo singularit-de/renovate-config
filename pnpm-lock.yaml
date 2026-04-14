@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       bumpp:
-        specifier: ^11.0.1
+        specifier: 11.0.1
         version: 11.0.1
 
 packages:
