@@ -3,7 +3,7 @@
   "extends": [
     "local>singularit-de/renovate-config"
   ],
-  "renovate-config-presets": {
+  "renovate-config": {
     "managerFilePatterns": ["**/*.json", "!**/package.json"]
   }
 }
